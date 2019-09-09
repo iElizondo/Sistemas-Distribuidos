@@ -7,12 +7,27 @@ def calcularSuma(valor1, valor2):
 def calcularMultiplicacion(valor1, valor2):
     return valor1 * valor2
 
+def calcularResta(valor1, valor2):
+    return valor1 - valor2
+
+def calcularDivision(valor1, valor2):
+    return valor1 / valor2
+
 def seleccionarMetodo(msg):
     valores = msg.split()
     if int(valores[2]) == 1:
         return calcularSuma(int(valores[0]), int(valores[1]))
     elif int(valores[2]) == 2:
         return calcularMultiplicacion(int(valores[0]), int(valores[1]))
+    elif int(valores[2]) == 3:
+        return calcularResta(int(valores[0]), int(valores[1]))
+    elif int(valores[2]) == 4:
+        if(int(valores[1]) == 0):
+            return "Error: Division entre cero"
+        else:
+            return calcularDivision(int(valores[0]), int(valores[1]))
+    else:
+        return "Operacion no valida"
 
 def iniciarServidor(host, puerto):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
